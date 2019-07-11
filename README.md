@@ -1,6 +1,6 @@
 # eciespy-demo
 
-A simple demo of eciespy based on flask-scaffold.
+A simple demo of [eciespy](https://github.com/kigawas/eciespy) based on flask-scaffold.
 
 ## Example
 
