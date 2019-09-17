@@ -1,6 +1,6 @@
 # eciespy-demo
 
-A simple demo of [eciespy](https://github.com/kigawas/eciespy) based on [flask-scaffold](https://github.com/kigawas/flask-scaffold).
+A simple demo of [eciespy](https://github.com/ecies/py) based on [flask-scaffold](https://github.com/kigawas/flask-scaffold).
 
 ## Example
 
