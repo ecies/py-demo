@@ -23,7 +23,7 @@ async def encrypt_decrypt(
     if prv and data:
         try:
             decrypted = decrypt(prv, bytes.fromhex(data))
-            return resp_string(decrypted.hex())
+            return resp_string(decrypted)
         except ValueError:
             raise HTTPException(status_code=400, detail="Invalid private key")
     elif pub and data:
