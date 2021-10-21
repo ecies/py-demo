@@ -1,23 +1,27 @@
-asn1crypto==1.4.0
-cffi==1.14.3
-click==7.1.2
-coincurve==13.0.0
-cytoolz==0.11.0; implementation_name == "cpython"
-eciespy==0.3.7
-eth-hash==0.2.0
-eth-keys==0.3.3
-eth-typing==2.2.2
-eth-utils==1.9.5
-fastapi==0.61.1
-h11==0.9.0
-httptools==0.1.1; sys_platform != "win32" and sys_platform != "cygwin" and platform_python_implementation != "PyPy"
-pycparser==2.20
-pycryptodome==3.9.8
-pydantic==1.6.1
+anyio==3.3.4; python_version >= "3.6" and python_full_version >= "3.6.2"
+asgiref==3.4.1; python_version >= "3.6"
+asn1crypto==1.4.0; python_version >= "3.6" and python_version < "4.0"
+cffi==1.15.0; python_version >= "3.6" and python_version < "4.0"
+click==8.0.3; python_version >= "3.6"
+coincurve==15.0.1; python_version >= "3.6" and python_version < "4.0"
+colorama==0.4.4; python_version >= "3.6" and python_full_version < "3.0.0" and platform_system == "Windows" or platform_system == "Windows" and python_version >= "3.6" and python_full_version >= "3.5.0"
+cytoolz==0.11.0; python_version >= "3.6" and python_full_version < "3.5.2" and python_version < "4.0" and implementation_name == "cpython" or python_full_version > "3.5.2" and python_version < "4" and python_version >= "3.6" and implementation_name == "cpython"
+eciespy==0.3.10; python_version >= "3.6" and python_version < "4.0"
+eth-hash==0.3.2; python_version >= "3.5" and python_version < "4" and (python_version >= "3.6" and python_full_version < "3.5.2" and python_version < "4.0" or python_full_version > "3.5.2" and python_version < "4" and python_version >= "3.6")
+eth-keys==0.3.3; python_version >= "3.6" and python_version < "4.0"
+eth-typing==2.2.2; python_version >= "3.6" and python_version < "4" and (python_version >= "3.6" and python_full_version < "3.5.2" and python_version < "4.0" or python_full_version > "3.5.2" and python_version < "4" and python_version >= "3.6")
+eth-utils==1.10.0; python_version >= "3.6" and python_full_version < "3.5.2" and python_version < "4.0" or python_full_version > "3.5.2" and python_version < "4" and python_version >= "3.6"
+fastapi==0.70.0; python_full_version >= "3.6.1"
+h11==0.12.0; python_version >= "3.6"
+idna==3.3; python_version >= "3.6" and python_full_version >= "3.6.2"
+pycparser==2.20; python_version >= "3.6" and python_full_version < "3.0.0" and python_version < "4.0" or python_version >= "3.6" and python_version < "4.0" and python_full_version >= "3.4.0"
+pycryptodome==3.11.0; python_version >= "3.6" and python_full_version < "3.0.0" and python_version < "4.0" or python_version >= "3.6" and python_version < "4.0" and python_full_version >= "3.5.0"
+pydantic==1.8.2; python_full_version >= "3.6.1"
 python-multipart==0.0.5
-six==1.15.0
-starlette==0.13.6
-toolz==0.11.1; implementation_name == "cpython" or implementation_name == "pypy"
-uvicorn==0.11.8
-uvloop==0.14.0; sys_platform != "win32" and sys_platform != "cygwin" and platform_python_implementation != "PyPy"
-websockets==8.1
+six==1.16.0; python_version >= "2.7" and python_full_version < "3.0.0" or python_full_version >= "3.3.0"
+sniffio==1.2.0; python_version >= "3.6" and python_full_version >= "3.6.2"
+starlette==0.16.0; python_version >= "3.6" and python_full_version >= "3.6.1"
+toolz==0.11.1; python_version >= "3.5"
+typing-extensions==3.10.0.2; python_full_version >= "3.6.1"
+uvicorn==0.15.0
+uvloop==0.16.0; python_version >= "3.7"
