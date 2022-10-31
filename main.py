@@ -1,10 +1,7 @@
 from typing import Optional
 
-from ecies import decrypt
-from ecies import encrypt
-from fastapi import FastAPI
-from fastapi import Form
-from fastapi import HTTPException
+from ecies import decrypt, encrypt
+from fastapi import FastAPI, Form, HTTPException
 from fastapi.responses import Response
 
 app = FastAPI()
