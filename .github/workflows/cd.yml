@@ -1,0 +1,22 @@
+name: CD
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.11"
+      - uses: abatilo/actions-poetry@v2.0.0
+        with:
+          poetry-version: 1.2.2
+      - run: poetry export -f requirements.txt -o requirements.txt --without-hashes
+      - uses: BogDAAAMN/deta-deploy-action@v1.0.1
+        with:
+          deta-access-token: ${{ secrets.DETA_ACCESS_TOKEN }}
+          deta-name: 'eciespy-demo'
