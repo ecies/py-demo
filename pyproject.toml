@@ -6,9 +6,9 @@ name = "eciespy-demo"
 version = "0.1.0"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.9"
 
-eciespy = "^0.3.7"
+eciespy = "^0.3.13"
 # server
 fastapi = "^0.85.1"
 python-multipart = "^0.0.5"
