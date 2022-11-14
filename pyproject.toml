@@ -18,7 +18,7 @@ uvloop = "^0.17.0"
 [tool.poetry.dev-dependencies]
 black = "^22.10"
 flake8 = "^5.0.4"
-mypy = "^0.982"
+mypy = "^0.990"
 
 [build-system]
 build-backend = "poetry.core.masonry.api"
