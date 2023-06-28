@@ -10,15 +10,15 @@ python = "^3.9"
 
 eciespy = "^0.3.13"
 # server
-fastapi = "^0.87.0"
-python-multipart = "^0.0.5"
-uvicorn = "^0.20.0"
+fastapi = "^0.98.0"
+python-multipart = "^0.0.6"
+uvicorn = "^0.22.0"
 uvloop = "^0.17.0"
 
 [tool.poetry.dev-dependencies]
-black = "^22.10"
+black = "^23.3"
 flake8 = "^6.0.0"
-mypy = "^0.982"
+mypy = "^1.4.1"
 
 [build-system]
 build-backend = "poetry.core.masonry.api"
