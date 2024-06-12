@@ -16,7 +16,7 @@ uvicorn = "^0.22.0"
 uvloop = "^0.17.0"
 
 [tool.poetry.dev-dependencies]
-black = "^23.3"
+black = "^24.4"
 flake8 = "^6.0.0"
 mypy = "^1.4.1"
 
