@@ -344,19 +344,19 @@ cython = ["cython"]
 
 [[package]]
 name = "eciespy"
-version = "0.3.13"
+version = "0.4.1"
 description = "Elliptic Curve Integrated Encryption Scheme for secp256k1 in Python"
 optional = false
-python-versions = ">=3.7,<4.0"
+python-versions = ">=3.8,<4.0"
 files = [
-    {file = "eciespy-0.3.13-py3-none-any.whl", hash = "sha256:80981063dc5aaa43260963ad9f9454ddeaaf452aed09c23cb90d51360b77ca92"},
-    {file = "eciespy-0.3.13.tar.gz", hash = "sha256:41426f6263775c1b797c58cadbc2805be9d1a8102ae13e8831c153d1651aaee2"},
+    {file = "eciespy-0.4.1-py3-none-any.whl", hash = "sha256:585de62e76ac8f210ea8d3e22aacc0064c270469bef0ed453627f2cacec81814"},
+    {file = "eciespy-0.4.1.tar.gz", hash = "sha256:daf655840d4fc6e9619ae59bbdab57cc944687dcb0aa2ac7800efe30a754d5ff"},
 ]
 
 [package.dependencies]
-coincurve = ">=13,<18"
+coincurve = ">=13,<19"
 eth-keys = ">=0.4.0,<0.5.0"
-pycryptodome = ">=3.15.0,<4.0.0"
+pycryptodome = ">=3.18.0,<4.0.0"
 
 [[package]]
 name = "eth-hash"
@@ -882,4 +882,4 @@ test = ["Cython (>=0.29.32,<0.30.0)", "aiohttp", "flake8 (>=3.9.2,<3.10.0)", "my
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "7eb30228770b5e1b56ee01debb3c234504e61cd8c86189d6a7bfd79827297f7a"
+content-hash = "0f910f027ea4bac07a41ff1df9deaa6b23fa9693909935d4bdc99c2e5c66fa0d"
