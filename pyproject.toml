@@ -13,7 +13,7 @@ eciespy = "^0.3.13"
 fastapi = "^0.110.3"
 python-multipart = "^0.0.6"
 uvicorn = "^0.22.0"
-uvloop = "^0.17.0"
+uvloop = "^0.19.0"
 
 [tool.poetry.dev-dependencies]
 black = "^23.3"
