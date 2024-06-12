@@ -10,7 +10,7 @@ python = "^3.9"
 
 eciespy = "^0.3.13"
 # server
-fastapi = "^0.98.0"
+fastapi = "^0.110.3"
 python-multipart = "^0.0.6"
 uvicorn = "^0.22.0"
 uvloop = "^0.17.0"
