@@ -8,7 +8,7 @@ version = "0.1.0"
 [tool.poetry.dependencies]
 python = "^3.9"
 
-eciespy = "^0.3.13"
+eciespy = "^0.4.2"
 # server
 fastapi = "^0.110.3"
 python-multipart = "^0.0.6"
