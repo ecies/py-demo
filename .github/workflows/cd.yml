@@ -24,4 +24,4 @@ jobs:
         with:
           access_token: ${{ secrets.ACCESS_TOKEN }}
           project_id: ${{ secrets.PROJECT_ID }}
-          space_release: true
+          space_push: true
