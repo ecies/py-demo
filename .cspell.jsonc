@@ -9,6 +9,7 @@
     "ecies",
     "eciespy",
     "fastapi",
+    "pydantic",
     "secp256k1",
     "Spacefile",
     "uvicorn",

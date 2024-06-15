@@ -3,6 +3,7 @@ authors = ["Weiliang Li <to.be.impressive@gmail.com>"]
 description = ""
 license = "MIT"
 name = "eciespy-demo"
+package-mode = false
 version = "0.1.0"
 
 [tool.poetry.dependencies]

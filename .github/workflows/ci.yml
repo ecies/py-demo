@@ -19,10 +19,4 @@ jobs:
           cache: "poetry"
 
       - run: poetry export -f requirements.txt -o requirements.txt --without=dev
-      - run: poetry install --only main
-
-      - uses: neobrains/space-pipe@v0.5
-        with:
-          access_token: ${{ secrets.ACCESS_TOKEN }}
-          project_id: ${{ secrets.PROJECT_ID }}
-          space_push: true
+      - run: poetry install

@@ -1,17 +1,18 @@
 from typing import Optional
 
 from ecies import decrypt, encrypt
-from fastapi import FastAPI, Form, HTTPException
-from fastapi.responses import Response
+from fastapi import FastAPI, Form, Response
+from fastapi.responses import JSONResponse
+from pydantic import BaseModel
 
 app = FastAPI()
 
 
-def resp_string(msg):
-    return Response(content=msg, media_type="plain/text")
+class Error(BaseModel):
+    detail: str
 
 
-@app.post("/")
+@app.post("/", responses={400: {"model": Error}})
 async def encrypt_decrypt(
     prv: Optional[str] = Form(None),
     pub: Optional[str] = Form(None),
@@ -22,12 +23,20 @@ async def encrypt_decrypt(
             decrypted = decrypt(prv, bytes.fromhex(data))
             return resp_string(decrypted)
         except ValueError:
-            raise HTTPException(status_code=400, detail="Invalid private key")
+            return resp_error("Invalid private key or data")
     elif pub and data:
         try:
             encrypted = encrypt(pub, data.encode())
             return resp_string(encrypted.hex())
         except ValueError:
-            raise HTTPException(status_code=400, detail="Invalid public key")
+            return resp_error("Invalid public key or data")
     else:
-        raise HTTPException(status_code=400, detail="Invalid request")
+        return resp_error("Invalid request")
+
+
+def resp_string(msg):
+    return Response(content=msg, media_type="plain/text")
+
+
+def resp_error(msg):
+    return JSONResponse(content={"detail": msg}, status_code=400)
