@@ -1,26 +1,21 @@
-[tool.poetry]
-authors = ["Weiliang Li <to.be.impressive@gmail.com>"]
-description = ""
-license = "MIT"
+[project]
+description = "A simple ecies demo based on FastAPI"
 name = "eciespy-demo"
-package-mode = false
 version = "0.1.0"
 
-[tool.poetry.dependencies]
-python = "^3.9"
+readme = "README.md"
+requires-python = ">=3.9"
 
-eciespy = "^0.4.0"
+dependencies = [
+  "eciespy>=0.4.2",
+  "fastapi>=0.114.2",
+  "python-multipart>=0.0.9",
+  "uvicorn>=0.30.6",
+  "uvloop>=0.20.0",
+]
 
-# server
-fastapi = "^0.111.0"
-python-multipart = "^0.0.9"
-uvicorn = "^0.30.0"
-uvloop = "^0.20.0"
-
-[tool.poetry.group.dev.dependencies]
-mypy = "^1.10.1"
-ruff = "^0.4.8"
-
-[build-system]
-build-backend = "poetry.core.masonry.api"
-requires = ["poetry-core>=1.0.0"]
+[tool.uv]
+dev-dependencies = [
+  "mypy>=1.11.2",
+  "ruff>=0.6.5",
+]
