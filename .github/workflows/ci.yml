@@ -10,13 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - run: pipx install poetry
-      - run: pipx inject poetry poetry-plugin-export
+      - run: pipx install uv
 
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: "poetry"
 
-      - run: poetry export -f requirements.txt -o requirements.txt --without=dev
-      - run: poetry install
+      - run: uv export --no-dev --no-hashes --format requirements-txt > requirements.txt
+      - run: uv sync
