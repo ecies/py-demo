@@ -4,7 +4,7 @@ anyio==4.4.0
 asn1crypto==1.5.1
 cffi==1.17.1
 click==8.1.7
-coincurve==19.0.1
+coincurve==20.0.0
 colorama==0.4.6 ; platform_system == 'Windows'
 cytoolz==0.12.3 ; implementation_name == 'cpython'
 eciespy==0.4.2
