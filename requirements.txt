@@ -17,7 +17,7 @@ h11==0.14.0
 hexbytes==1.2.1
 idna==3.10
 pycparser==2.22
-pycryptodome==3.20.0
+pycryptodome==3.21.0
 pydantic==2.9.1
 pydantic-core==2.23.3
 python-multipart==0.0.17
