@@ -1,6 +1,6 @@
 # eciespy-demo
 
-A simple demo of [eciespy](https://github.com/ecies/py) based on FastAPI
+A simple demo of [eciespy](https://github.com/ecies/py) based on Litestar
 
 ## Example
 

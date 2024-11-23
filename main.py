@@ -1,42 +1,73 @@
 from typing import Optional
 
 from ecies import decrypt, encrypt
-from fastapi import FastAPI, Form, Response
-from fastapi.responses import JSONResponse
-from pydantic import BaseModel
+from litestar import Litestar, MediaType, Request, Response, post
+from litestar.enums import RequestEncodingType
+from litestar.openapi import OpenAPIConfig
+from litestar.openapi.datastructures import ResponseSpec
+from litestar.openapi.plugins import SwaggerRenderPlugin
+from litestar.params import Body
+from msgspec import Struct
 
-app = FastAPI()
+
+class RequestException(Exception):
+    def __init__(self, detail: str):
+        self.detail = detail
 
 
-class Error(BaseModel):
+class Payload(Struct):
+    data: str
+    prv: Optional[str] = None
+    pub: Optional[str] = None
+
+
+class RequestError(Struct):
     detail: str
 
 
-@app.post("/", responses={400: {"model": Error}})
+@post(
+    "/",
+    responses={
+        400: ResponseSpec(data_container=RequestError),
+    },
+)
 async def encrypt_decrypt(
-    prv: Optional[str] = Form(None),
-    pub: Optional[str] = Form(None),
-    data: str = Form(...),
-):
-    if prv and data:
+    data: Payload = Body(media_type=RequestEncodingType.URL_ENCODED),
+) -> str:
+    if data.prv and data.data:
         try:
-            decrypted = decrypt(prv, bytes.fromhex(data))
-            return resp_string(decrypted)
+            decrypted = decrypt(data.prv, bytes.fromhex(data.data))
+            try:
+                return decrypted.decode()
+            except ValueError:
+                return decrypted.hex()
         except ValueError:
-            return resp_error("Invalid private key or data")
-    elif pub and data:
+            raise RequestException(detail="Invalid private key or data")
+    elif data.pub and data:
         try:
-            encrypted = encrypt(pub, data.encode())
-            return resp_string(encrypted.hex())
+            encrypted = encrypt(data.pub, data.data.encode())
+            return encrypted.hex()
         except ValueError:
-            return resp_error("Invalid public key or data")
+            raise RequestException(detail="Invalid public key or data")
     else:
-        return resp_error("Invalid request")
+        raise RequestException(detail="Invalid request")
 
 
-def resp_string(msg):
-    return Response(content=msg, media_type="plain/text")
+def request_exception_handler(_: Request, exc: RequestException) -> Response:
+    return Response(
+        media_type=MediaType.JSON,
+        content={"detail": exc.detail},
+        status_code=400,
+    )
 
 
-def resp_error(msg):
-    return JSONResponse(content={"detail": msg}, status_code=400)
+app = Litestar(
+    route_handlers=[encrypt_decrypt],
+    exception_handlers={RequestException: request_exception_handler},
+    openapi_config=OpenAPIConfig(
+        "eciespy demo",
+        version="0.1.0",
+        path="/docs",
+        render_plugins=[SwaggerRenderPlugin()],
+    ),
+)
