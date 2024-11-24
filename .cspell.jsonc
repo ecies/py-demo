@@ -8,10 +8,7 @@
     "aes",
     "ecies",
     "eciespy",
-    "fastapi",
-    "pydantic",
     "secp256k1",
-    "Spacefile",
     "uvicorn",
     "venv"
   ],
@@ -26,8 +23,9 @@
     ".github",
     ".gitignore",
     ".cspell.jsonc",
-    ".pre-commit-config.yaml",
     "LICENSE",
-    "poetry.lock"
+    "pyproject.toml",
+    "requirements.txt",
+    "uv.lock"
   ]
 }

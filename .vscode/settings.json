@@ -1,1 +1,8 @@
-{}
+{
+  "cSpell.ignorePaths": [
+    ".git",
+    ".vscode",
+    ".venv",
+    "requirements.txt"
+  ]
+}
