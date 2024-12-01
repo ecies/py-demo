@@ -24,7 +24,7 @@ markdown-it-py==3.0.0
 mdurl==0.1.2
 msgspec==0.18.6
 multidict==6.1.0
-polyfactory==2.18.0
+polyfactory==2.18.1
 pycparser==2.22
 pycryptodome==3.21.0
 pygments==2.18.0
