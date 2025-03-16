@@ -10,17 +10,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - run: pipx install uv
-
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: "3.13"
+
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+          version: "0.6.5"
 
       - run: uv export --no-dev --no-hashes --format requirements-txt > requirements.txt
       - run: uv sync
-      - run: uv run uvicorn main:app &
-      - run: |
-          sleep 2 && curl -X POST http://127.0.0.1:8000 \
-          -H 'Content-Type: application/x-www-form-urlencoded' \
-          -H 'cache-control: no-cache' \
-          -d 'data=abc&pub=0x98afe4f150642cd05cc9d2fa36458ce0a58567daeaf5fde7333ba9b403011140a4e28911fcf83ab1f457a30b4959efc4b9306f514a4c3711a16a80e3b47eb58b'
+      - run: uv run pytest
