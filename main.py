@@ -25,6 +25,13 @@ class RequestError(Struct):
     detail: str
 
 
+def make_readable(data: bytes):
+    try:
+        return data.decode()
+    except ValueError:
+        return data.hex()
+
+
 @post(
     "/",
     responses={
@@ -37,10 +44,7 @@ async def encrypt_decrypt(
     if data.prv and data.data:
         try:
             decrypted = decrypt(data.prv, bytes.fromhex(data.data))
-            try:
-                return decrypted.decode()
-            except ValueError:
-                return decrypted.hex()
+            return make_readable(decrypted)
         except ValueError:
             raise RequestException(detail="Invalid private key or data")
     elif data.pub and data:
