@@ -18,7 +18,7 @@ mdurl==0.1.2
 msgspec==0.19.0
 multidict==6.1.0
 multipart==1.2.1
-polyfactory==2.19.0
+polyfactory==2.21.0
 pycryptodome==3.22.0
 pygments==2.19.1
 pyyaml==6.0.2
