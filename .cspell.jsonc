@@ -8,6 +8,7 @@
     "aes",
     "ecies",
     "eciespy",
+    "litestar",
     "secp256k1",
     "uvicorn",
     "venv"
