@@ -18,7 +18,7 @@ jobs:
         with:
           enable-cache: true
           cache-dependency-glob: "uv.lock"
-          version: "0.6.5"
+          version: "latest"
 
       - run: uv export --no-dev --no-hashes --format requirements-txt > requirements.txt
       - run: uv sync
