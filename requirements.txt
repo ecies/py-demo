@@ -57,7 +57,7 @@ pygments==2.19.2
     # via rich
 pyyaml==6.0.2
     # via litestar
-rich==14.0.0
+rich==14.1.0
     # via
     #   litestar
     #   rich-click
